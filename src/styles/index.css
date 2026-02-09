@@ -1,11 +1,266 @@
-/* 
+:root {
+	--bg-main: #0c1016;
+	--bg-panel: #131922;
+	--bg-soft: #1b2430;
+	--text-main: #e8edf4;
+	--text-soft: #93a0b2;
+	--accent: #21b6d7;
+	--accent-strong: #1494b7;
+	--border: #273446;
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+* {
+	box-sizing: border-box;
+}
 
-*/
+body {
+	margin: 0;
+	background: radial-gradient(circle at 15% -10%, #1b2532 0%, var(--bg-main) 35%);
+	color: var(--text-main);
+	font-family: "Segoe UI", "Roboto", sans-serif;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.artstation-page {
+	min-height: 100vh;
+}
+
+.art-navbar {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 14px 24px;
+	background: rgba(12, 16, 22, 0.9);
+	backdrop-filter: blur(8px);
+	border-bottom: 1px solid rgba(39, 52, 70, 0.65);
+}
+
+.art-logo {
+	font-size: 1.05rem;
+	font-weight: 800;
+	letter-spacing: 0.12rem;
+	color: var(--text-main);
+}
+
+.art-nav-links {
+	gap: 24px;
+}
+
+.art-nav-links a {
+	color: var(--text-soft);
+	font-size: 0.94rem;
+	transition: color 0.2s ease;
+}
+
+.art-nav-links a:hover {
+	color: var(--text-main);
+}
+
+.art-actions {
+	display: flex;
+	gap: 8px;
+}
+
+.btn-primary {
+	background-color: var(--accent);
+	border-color: var(--accent);
+	color: #03151a;
+	font-weight: 700;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+	background-color: var(--accent-strong);
+	border-color: var(--accent-strong);
+	color: #001216;
+}
+
+.hero {
+	padding-top: 72px;
+	padding-bottom: 32px;
+}
+
+.hero-tag {
+	display: inline-block;
+	background: rgba(33, 182, 215, 0.12);
+	border: 1px solid rgba(33, 182, 215, 0.35);
+	color: #8ce7fb;
+	padding: 6px 12px;
+	border-radius: 999px;
+	font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+	text-transform: uppercase;
+}
+
+.hero h1 {
+	max-width: 820px;
+	margin: 14px 0 10px;
+	font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+	font-weight: 800;
+	line-height: 1.15;
+}
+
+.hero-subtitle {
+	max-width: 700px;
+	color: var(--text-soft);
+	font-size: 1rem;
+	margin-bottom: 24px;
+}
+
+.hero-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.section-head {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 12px;
+	margin-bottom: 16px;
+}
+
+.section-head h2 {
+	font-size: 1.25rem;
+	font-weight: 700;
+	margin: 0;
+}
+
+.section-head a {
+	font-size: 0.92rem;
+	color: #79d7eb;
+}
+
+.art-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 14px;
+}
+
+.art-card {
+	position: relative;
+	height: 250px;
+	border-radius: 10px;
+	overflow: hidden;
+	background: var(--bg-panel);
+	border: 1px solid var(--border);
+}
+
+.art-card img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.35s ease;
+}
+
+.art-overlay {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	padding: 14px;
+	background: linear-gradient(
+		to top,
+		rgba(4, 7, 11, 0.92) 4%,
+		rgba(4, 7, 11, 0.58) 42%,
+		rgba(4, 7, 11, 0.12) 100%
+	);
+}
+
+.art-style {
+	display: inline-block;
+	align-self: flex-start;
+	font-size: 0.72rem;
+	font-weight: 700;
+	color: #8ce7fb;
+	background-color: rgba(33, 182, 215, 0.18);
+	border: 1px solid rgba(33, 182, 215, 0.45);
+	padding: 3px 8px;
+	border-radius: 999px;
+	margin-bottom: 8px;
+}
+
+.art-overlay h3 {
+	margin: 0;
+	font-size: 1rem;
+	font-weight: 700;
+}
+
+.art-overlay p {
+	margin: 2px 0 0;
+	font-size: 0.84rem;
+	color: #afbdcc;
+}
+
+.art-card:hover img {
+	transform: scale(1.08);
+}
+
+.categories {
+	margin-top: 14px;
+}
+
+.category-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.category-list span {
+	padding: 8px 12px;
+	font-size: 0.85rem;
+	border: 1px solid var(--border);
+	background: var(--bg-soft);
+	color: #c8d3df;
+	border-radius: 999px;
+}
+
+.art-footer {
+	border-top: 1px solid rgba(39, 52, 70, 0.7);
+	padding: 24px;
+	text-align: center;
+	color: #8e9caf;
+	font-size: 0.86rem;
+}
+
+@media (max-width: 991px) {
+	.art-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 576px) {
+	.art-navbar {
+		padding: 10px 14px;
+	}
+
+	.art-logo {
+		font-size: 0.95rem;
+	}
+
+	.art-actions .btn {
+		padding: 0.25rem 0.5rem;
+		font-size: 0.78rem;
+	}
+
+	.hero {
+		padding-top: 42px;
+	}
+
+	.art-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.art-card {
+		height: 230px;
+	}
+}
